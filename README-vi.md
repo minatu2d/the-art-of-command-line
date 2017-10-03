@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)∙ [Tiếng Việt](README-vi.md)*
 
 
 # Nghệ thuật sử dụng dòng lênh 
@@ -9,7 +9,7 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-- [Meta](#meta)
+- [Một số điều cần nói trước](#meta)
 - [Cơ bản](#basics)
 - [Sử dụng hàng ngày](#everyday-use)
 - [Xử lý file (tệp) và dữ liệu](#processing-files-and-data)
@@ -24,17 +24,17 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Thành thạo việc sử dụng dòng lệnh là một kĩ năng thường bị xem nhẹ hoặc được xem như một dạng bí quyết, nhưng thực sự nó sẽ giúp cải thiện tính linh hoạt và năng xuất làm việc cho engineer một cách rõ ràng và tinh tế. Đây là một đóng các notes và tips (mẹo) khi sử dụng dòng lệnh mà chúng tôi cảm thấy hữu ích khi làm việc với Linux. Một vài tips thì khá cơ bản, một số lại tương đối đặc trưng, phức tạp, hoặc có thể đã lỗi thời. Trang này sẽ không dài, nhưng nếu bạn có thể sử dụng và lặp lại những cái được nói đến ở đây, thì bạn cũng biết nhiều rồi đấy.
+Thành thạo việc sử dụng dòng lệnh là một kĩ năng thường bị xem nhẹ hoặc được xem như một dạng bí quyết, nhưng thực sự nó giúp cải thiện tính linh hoạt và năng xuất làm việc cho engineer một cách rõ ràng và tinh tế. Đây là một  đống các notes và tips (mẹo) hữu ích, được lựa chọn trong quá trình sử dụng dòng lệnh trên Linux. Một vài tips thì khá cơ bản, một số lại tương đối đặc trưng, phức tạp, hoặc có thể đã không còn phổ biến nữa. Trang này sẽ không dài đâu, nhưng nếu bạn có thể sử dụng và lặp lại những cái được nói đến ở đây, bạn cũng biết khá nhiều rồi đấy.
 
 Nội dung này là kết quả của rất nhiều tác giả và người dịch [many authors and translators](AUTHORS.md).
 Một vài thông tin:
 [ban đầu](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [tiếp đến](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 trên [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
- nhưng nó đã được đưa lên GitHub, nơi có rất nhiều người tài năng hơn cả chính tác giả đã đóng góp cho nó.
+ nhưng nó đã được đưa lên GitHub, nơi có rất nhiều người tài năng hơn cả chính tác giả ban đầu đã đóng góp cho nó.
 [**Hãy đặt một câu hỏi**](https://airtable.com/shrzMhx00YiIVAWJg) nếu bạn có bất cứ thắc mắc nào liên quan đến các câu lệnh trong bài. [**Hãy đóng góp**](/CONTRIBUTING.md) nếu bạn thấy có lỗi hoặc có gì đó có thể tốt hơn!
 
-## Meta
+## Một số điều cần nói trước
 
 Phạm vi bài viết:
 
@@ -51,73 +51,73 @@ Chú ý:
 
 ## Cơ bản 
 
-- Học cơ bản về Bash. Thực ra, gõ `man bash` và chỉ ít nhất xem qua một lượt thôi; nó rất dễ để theo dõi nên không cần đọc kĩ đóng dài dòng đó. Các shells khác có thể ngon, nhưng Bash thì mạnh mẽ và luôn có sẵn trên nhiều hệ thống (*chỉ* học zsh, fish, etc., trong khi thử với laptop của bạn mà thôi, chống chỉ địnhg trong một số tình huống, như trên các server đang chạy chẳng hạn).
+- Học cơ bản về Bash. Thực ra, chỉ cần gõ `man bash` và xem qua ít nhất một lượt; nó rất dễ để theo dõi và cũng không quá dài. Các shell khác có thể ngon hơn ở một số điểm, nhưng Bash rất mạnh mẽ và đặc biệt luôn được cài sẵn trên nhiều hệ thống (nếu *chỉ* học zsh, fish, etc., ở trên laptop thôi cũng được, nhưng nó khiến cho bạn bị hạn chế trong nhiều tình huống, như trên hầu hết các server đang chạy chẳng hạn).
 
-- Học ít nhất một trình soạn thảo (editor). Lý tưởng là Vim (`vi`), nó thực sự vô đối cho tác vụ soạn thảo ở trên terminal (thậm chí hiện tại nếu bạn đang sử dụng Emacs, một IDE lớn, một editor khá ngầu trong thời gian gần đây).
+- Học ít nhất một trình soạn thảo (editor). Lý tưởng nhất là Vim (`vi`), nó thực sự vô đối cho tác vụ soạn thảo ở trên terminal (thậm chí hiện tại nếu bạn đang sử dụng Emacs, rồi thì một IDE khá to, một editor ngầu trong dạo gần gần đây).
 
-- Biết cách đọc tài liệu bằng câu lệnh `man` ( nếu tò mò, lệnh `man man` sẽ liệt kê các số section, ví dụ 1 tương ứng với các câu lệnh "regular"(phổ biên), 5 là các files/conventions(quy ước), và 8 dành cho administration hay chúng ta vẫn gọi là quản trị). Tìm các trang man này bằng `apropos`. Nhớ rằng một vài command không phải có chương trình tương ứng, mà là có sẵn trong Bash (builtins), và bạn có thể xem trợ giúp của chúng bằng lệnh `help` và `help -d`. Bạn có thể kiểm tra một câu lệnh có chương trình tương ứng, hay có sẵn trong shell hay là một lệnh đại diện (alias) bằng cách sử dụng `type command` với command là câu lệnh tương ứng.
+- Biết cách đọc tài liệu bằng câu lệnh `man` (nếu tò mò, lệnh `man man` sẽ liệt kê các số section, ví dụ 1 tương ứng với các câu lệnh thuộc loại "phổ biến", 5 là các files/quy ước, và 8 dành cho việc quản trị). Tìm các trang man này bằng `apropos`. Nhớ rằng một vài command không phải chương trình binary tương ứng, mà là có sẵn trong Bash ( hay gọi builtins), và bạn có thể xem trợ giúp của chúng bằng lệnh `help` và `help -d`. Bạn có thể kiểm tra một câu lệnh có chương trình tương ứng, hay có sẵn trong shell hay là một lệnh đại diện (alias) bằng cách sử dụng `type command` với command là câu lệnh muốn kiểm tra.
 
-- Học về chuyển hướng của  output và input sử dụng `>` và `<` rồi thì pipes sử dụng `|` (nhiều bác đọc là rào). Biết rằng `>` sẽ ghi đè file đầu ra, còn `>>` sẽ thêm vào cuối. Học về stdout, stderr.
+- Học về chuyển hướng của  output và input sử dụng `>` và `<` rồi thì đường ống (pipes) sử dụng `|` (tên dân dã là gì quên mất rồi, rào hay xoạc gì đó). Nhớ rằng `>` sẽ ghi đè file đầu ra, còn `>>` sẽ thêm vào cuối file. Học về để biết stdout, stderr.
 
-- Học về mở rộng ra danh sách file (file glob expansion) bằng kí hiệu `*` (hoặc `?` và cả `[`...`]`), bao bằng dấu nháy, rồi thì phân biệt giữa bao bằng nháy kép `"` và single `'`. ( Xem thêm về mở rộng giá trị biến ở bên dưới.)
+- Học về mở rộng ra danh sách file (file glob expansion) cho kí hiệu `*` (hoặc `?` và cả `[`...`]` nữa), rồi thì phân biệt giữa bao bằng nháy kép `"` và nháy đơn `'`. (Xem thêm về mở rộng giá trị biến ở bên dưới.)
 
-- Làm quen với quản lý job trong  Bash thông qua: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Làm quen với quản lý job trong Bash thông qua: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
-- Biết về `ssh`, và các phương pháp xác thực đơn giản không password, thông qua `ssh-agent`, `ssh-add`, etc.
+- Biết về `ssh`, và các phương pháp xác thực không password, thông qua `ssh-agent`, `ssh-add`, etc.
 
-- Cơ bản về quản lý file: `ls` and `ls -l` (cụ thể hơn là, biết về ý nghĩa mỗi cột trong danh sách mà `ls -l` đưa ra), `less`, `head`, `tail` and `tail -f` (hoặc thâm chí ngon hơn nữa là, `less +F`), `ln` and `ln -s` ( học về sự khác nhau cũng như lợi ích giữa liên kết (link) hard (cứng) so với soft (mềm)), `chown`, `chmod`, `du` (cho việc kiểm tra nhanh tình trạng sử dụng lưu trữ: `du -hs *`). Dành cho quản lý hệ thống file, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Học để biết inode là cái gì (`ls -i` or `df -i`).
+- Cơ bản về quản lý file: `ls` and `ls -l` ( cụ thể hơn, là biết về ý nghĩa mỗi cột trong danh sách mà `ls -l` đưa ra), `less`, `head`, giữa `tail` và `tail -f` (hoặc thậm chí tốt hơn nữa hơn nữa là `less +F`), giữa `ln` và `ln -s` (học về sự khác nhau cũng như lợi ích giữa liên kết cứng (hard link) và liên kết mềm (soft link)), `chown`, `chmod`, `du` (cho việc kiểm tra nhanh tình trạng sử dụng thiết bị lưu trữ: `du -hs *`). Để quản lý hệ thống file sử dụng `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Học để biết inode là cái gì ( rồi ý nghĩa đầu ra của `ls -i` hoặc `df -i`).
 
 - Quản lý mạng cơ bản: `ip` hoặc `ifconfig`, `dig`, `traceroute`, `route`.
 
-- Học về hệ thống quản lý phiên bản (VCS), như `git` chẳng hạn.
+- Học và sử dụng một hệ thống quản lý phiên bản (Version Control System), như `git` chẳng hạn.
 
 - Hiểu rõ biểu thức chính quy, và nhiều cờ khác nhau cho `grep`/`egrep`. Như `-i`, `-o`, `-v`, `-A`, `-B`, và `-C` là các options nên biết.
 
-- Học cách sử dụng `apt-get`, `yum`, `dnf` or `pacman` (phụ thuộc vào distro đang sử dụng) để tìm và cài đặt gói cần thiết. Và chắc rằng bạn có  `pip` để cài đặt các câu lệnh viết bằng Python (một vài lệnh dưới đây được cài đặt dễ dàng nhất qua `pip`).
+- Học cách sử dụng `apt-get`, `yum`, `dnf` hoặc `pacman` (phụ thuộc vào bản phân phối bạn đang sử dụng) để tìm và cài đặt gói cần thiết. Và chắc rằng bạn có `pip` để cài đặt các câu lệnh viết bằng Python (một vài lệnh dưới đây được cài đặt dễ dàng nhất qua `pip`).
 
 
 ## Sử dụng hàng ngày 
 
-- Trong Bash, sử dụng **Tab** hoàn thành tham số hoặc liệt kê các câu lệnh có thể, dùng **ctrl-r** để tìm kiếm trong lịch sử các câu lệnh đã chạy (lúc gõ lệnh, để tìm kiếm lệnh chứa đoạn đang gõ, nhấn **ctrl-r** nhiều nhiều lần để xem lệnh kết quả tìm kiếm trong lịch sử, nhấn **Enter** để chạy lệnh đã tìm được, hoặc nhấn nút mũi tên sang phải để có thể chính sửa lệnh tìm được).
+- Trong Bash, sử dụng **Tab** hoàn thành tham số, liệt kê các câu lệnh dùng với đoạn đang gõ, dùng **ctrl-r** để tìm kiếm trong lịch sử các câu lệnh đã chạy (sau khi gõ được một đoạn, nhấn **ctrl-r** nhiều lần để xem lệnh kết quả tìm kiếm trong lịch sử, nhấn **Enter** để chạy lệnh đã tìm được, hoặc nhấn nút mũi tên sang phải để chính sửa lệnh đang tìm được).
 
-- Trong Bash, sử dụng **ctrl-w** để xóa từ cuối cùng, và **ctrl-u** để xóa nội dung từ con trỏ trở về đầu dòng. Sử dụng **alt-b** và **alt-f** để di chuyễn về trước (b - backward) hoặc về sau (f - forward) theo đơn vị từ, **ctrl-a** để di chuyển con trỏ về đầu dòng,  **ctrl-e** để di chuyển con trỏ về cuối, **ctrl-k** để xóa từ vị trí con trỏ đến cuối dòng, **ctrl-l** xóa màn hình. Xem thêm `man readline` để xem tất cả các phím tắt mặc định trong Bash. Có rất rất nhiều. Ví dụ, **alt-.** để đảo 2 tham số trước, và **alt-*** để mở rộng glob (tức là thay thế các kí tự wildcard như `*` chẳng hạn.
+- Trong Bash, sử dụng **ctrl-w** để xóa từ (word) cuối cùng, và **ctrl-u** để xóa nội dung từ con trỏ trở về đầu dòng. Sử dụng **alt-b** và **alt-f** để di chuyển về trước (b - backward) hoặc về sau (f - forward) một từ, **ctrl-a** để di chuyển con trỏ về đầu dòng,  **ctrl-e** để di chuyển con trỏ về cuối, **ctrl-k** để xóa từ vị trí con trỏ đến cuối dòng, **ctrl-l** để xóa màn hình, đưa dòng lệnh về góc trên trái. Mở `man readline` để xem tất cả các phím tắt mặc định trong Bash. Có rất rất nhiều khó mà nhớ hết được. Ví dụ, **alt-.** để tham số cuối của lần lượt các câu lệnh trước ngay trước đó, và **alt-*** để mở rộng glob (tức là thay thế các kí tự wildcard như `*` ngay lập tức).
 
 
-- Ngoài ra, nếu bạn yêu các phím tắt theo phong cách vi-style, sử dụng `set -o vi` để thiết lập nó (và `set -o emacs` để quay lại mặc định).
+- Ngoài ra, nếu bạn thích các phím tắt theo phong cách của `vi` thì có thể thiết lập `set -o vi` (và sử dụng `set -o emacs` để quay lại mặc định).
 
-- Để edit những câu lệnh dài, sau khi thiết lập editor mặc định ( ví dụ bằng lệnh `export EDITOR=vim`), bấm tổ hợp phím **ctrl-x** **ctrl-e** nó sẽ mở câu lệnh đang edit trong editor đó để cho phép dễ dàng edit hơn ở chế độ nhiều dòng. Hoặc edit bằng vi luôn, sử dụng phím **escape-v**.
+- Để gõ những câu lệnh dài tránh, bạn có thể thiết lập một editor (ví dụ bằng lệnh `export EDITOR=vim`), sau đó sử dụng tổ hợp phím **ctrl-x** **ctrl-e**, nó sẽ mở câu lệnh đang gõ trong editor được thiết lập đó, cho phép dễ dàng edit hơn ở chế độ nhiều dòng. Hoặc chỉnh sửa bằng vi luôn, sử dụng phím **escape-v**.
 
-- Để xem danh sách câu lệnh đã gõ, sử dụng `history`. Sử dụng `!n` ( với `n` là chỉ số của câu lệnh trong bảng mà lênh `history` đưa ra) để chạy lại câu lệnh. Cũng có rất nhiều dạng viết tắt khác bạn có thể sử dụng, hữu ích nhất là `!$` để lấy tham số cuối cùng của và `!!` đại diện cho câu lệnh cuối cùng ( xem thêm phần "HISTORY EXPANSION"  trong trang man). Tuy nhiên, những cái này có thể dễ dàng **ctrl-r** and **alt-.**.
+- Để xem danh sách câu lệnh đã chạy, sử dụng `history`. Sử dụng `!n` (với `n` là chỉ số của câu lệnh trong bảng mà `history` đưa ra) để chạy lại câu lệnh tương ứng. Cũng có rất nhiều dạng viết tắt khác bạn có thể sử dụng với các câu lệnh lịch sử, hữu ích nhất có lẽ là `!$` để lấy tham số cuối cùng của câu lệnh chạy ngay trước và `!!` gọi lại chính câu lệnh trước (xem thêm phần "HISTORY EXPANSION"  trong trang manunal của lệnh `history`). Thực tế thì, viết tắt này có thể dễ dàng thay thế bằng cách kết hợp **ctrl-r** (tìm trong danh sách lệnh đã chạy) và **alt-.** (mở rộng các glob).
 
-- Trở về thư mục home bằng `cd`. Sử dụng `~` để đại diện cho tư mục home (e.g. `~/.bashrc`). Trong script `sh` thì thư mục home là giá trị biến `$HOME` luôn.
+- Trở về thư mục home bằng `cd` (không tham số). Sử dụng `~` để đại diện cho thư mục home của user hiện tại (ví dụ `~/.bashrc`). Đường dẫn thư mục home là giá trị biến môi trường `$HOME` luôn.
 
 - Trở về thư mục ngay trước khi chuyển đến thư mục hiện tại: `cd -`.
 
-- Lúc bạn đang gõ một câu lệnh mà thấy phân vân, không muốn thực hiện nói nữa, gõ **alt-#** để thêm ngay một kí tự `#` vào đầu dòng rồi enter để biến nó thành một dòng comment (gõ lần lượt **ctrl-a**, **#**, **enter** cũng có tác dụng tương tự). Bạn có thể gọi lại nó sau thông qua lịch sử câu lệnh.
+- Lúc bạn đang gõ một câu lệnh mà thấy phân vân, không muốn thực hiện nói nữa, hãy gõ **alt-#** ngay lập tức dòng đó sẽ được thêm `#` và trở thành một dòng comment (gõ lần lượt **ctrl-a**, **#**, **enter** cũng có tác dụng tương tự). Dù comment thì vẫn được lưu lại trong history, bạn có thể gọi lại nó.
 
-- Sử dụng `xargs` (hoặc `parallel`). Nó rất mạnh. Chú ý là, bạn có thể làm việc với nhiều trường trên 1 dòng (`-L`) cũng như song song (`-P`). Nếu bạn không chắc về câu lệnh chạy cuối, đầu tiên hãy sử dụng `xargs echo` để kiểm tra các tham số đã. Tất nhiên, `-I{}` cũng rất tiện dụng. Ví dụ:
+- Sử dụng`xargs` (hoặc `parallel`). Nó rất rất mạnh. Chú ý là, bạn có thể làm việc với nhiều trường dữ liệu trên 1 dòng (`-L`) cũng như song song (`-P`). Nếu bạn không chắc về câu lệnh được thực hiện trong `args` có đúng hay không, đầu tiên hãy sử dụng `xargs echo` để kiểm tra các tham số đã. Rồi thì, `-I{}` cũng rất tiện dụng. Như ví sau:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` hiển thị các process đang chạy theo dạng cây.
+- `pstree -p` để hiển thị các process đang chạy theo dạng cây.
 
-- Sử dụng `pgrep` và `pkill` để tìm và gửi `signal` (tín hiệu, yêu cầu) theo tên (`-f` sẽ hữu ích).
+- Sử dụng `pgrep` và `pkill` để tìm process rồi thì gửi `signal` (tín hiệu, yêu cầu) đến process theo tên tên của chúng (`-f` sẽ hữu ích).
 
-- Biết nhiều loại tín hiệu có thể gửi cho process. Ví dụ, để dừng một process, sử dụng `kill -STOP [pid]`. Danh sách đầy đủ của các tín hiệu này, xem ở `man 7 signal`
+- Biết nhiều loại tín hiệu có thể gửi cho process. Ví dụ, để dừng một process, sử dụng `kill -STOP [pid]`. Để xem danh sách đầy đủ của các tín hiệu này, xem ở `man 7 signal`
 
-- Sử dụng `nohup` hoặc `disown` nếu bạn muốn tiến trình chạy nền để giữ cho nó chạy mãi.
+- Sử dụng `nohup` hoặc `disown` nếu bạn muốn tiến trình chạy nền chạy mãi mà không bị tắt khi tắt terminal.
 
-- Kiểm tra process nào đang lắng nghe mạng bằng `netstat -lntp` hoặc `ss -plat` (dành cho TCP; thêm `-u` dành cho UDP) hoặc `lsof -iTCP -sTCP:LISTEN -P -n` ( làm việc trên cả OS X).
+- Kiểm tra process nào đang lắng nghe mạng bằng `netstat -lntp` hoặc `ss -plat` (mặc định là TCP; thêm `-u` cho UDP) hoặc `lsof -iTCP -sTCP:LISTEN -P -n` (chạy cả trên cả OS X).
 
-- Xem thêm cả `lsof` and `fuser` kiểm tra các socket và file đang mở.
+- Có cả `lsof` và `fuser` kiểm tra xem có socket và file nào đang mở.
 
 - Dùng `uptime` hoặc `w` để biết hệ thống đã chạy bao lâu chưa tắt.
 
 - Sử dụng `alias` để tạo một tên khác cho các câu lệnh hay sử dụng. Ví dụ, `alias ll='ls -latr'` sẽ tạo một `câu lệnh mới` có tên là `ll`.
 
-- Lưu các `alias`, các thiết lập shell, rồi các hàm hay sử dụng được đặt trong `~/.bashrc`, và  [thứ tự các file được source khi login vào shell](http://superuser.com/a/183980/7106). Sử dụng những cái này giúp bạn thiết lập cho session làm việc trên shell của bạn.
+- Lưu các `alias`, các thiết lập shell, rồi các hàm hay sử dụng nên được đặt trong `~/.bashrc`, và [thứ tự các file được source khi login vào shell](http://superuser.com/a/183980/7106). Sử dụng những cái này giúp bạn thiết lập cho session làm việc trên shell của bạn.
 
 - Đặt các thiết lập biến môi trường cũng như các câu lệnh cần chạy ngay lúc đầu vào file `~/.bash_profile`. Tách riêng các cấu hình khi sử dụng cho các shell được khởi động từ môi trường đồ họa hoặc `cron` jobs.
 
