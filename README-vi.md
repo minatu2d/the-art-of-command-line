@@ -117,30 +117,30 @@ Chú ý:
 
 - Sử dụng `alias` để tạo một tên khác cho các câu lệnh hay sử dụng. Ví dụ, `alias ll='ls -latr'` sẽ tạo một `câu lệnh mới` có tên là `ll`.
 
-- Lưu các `alias`, các thiết lập shell, rồi các hàm hay sử dụng nên được đặt trong `~/.bashrc`, và [thứ tự các file được source khi login vào shell](http://superuser.com/a/183980/7106). Sử dụng những cái này giúp bạn thiết lập cho session làm việc trên shell của bạn.
+- Các `alias`, các thiết lập shell, các hàm hay sử dụng nên được lưu vào `~/.bashrc`, rồi [thứ tự các file được source khi login vào shell](http://superuser.com/a/183980/7106). Sử dụng những cái này giúp bạn thiết lập cho mỗi phiên làm việc trên shell của bạn.
 
-- Đặt các thiết lập biến môi trường cũng như các câu lệnh cần chạy ngay lúc đầu vào file `~/.bash_profile`. Tách riêng các cấu hình khi sử dụng cho các shell được khởi động từ môi trường đồ họa hoặc `cron` jobs.
+- Đặt các thiết lập biến môi trường cũng như các câu lệnh cần chạy lúc đăng nhập ở file `~/.bash_profile`. Tách riêng các cấu hình khi sử dụng cho các shell được khởi động từ môi trường đồ họa hoặc liên quan `cron`.
 
 - Đồng bộ các file cấu hình (e.g. `.bashrc` and `.bash_profile`) giữa nhiều máy bằng Git.
 
-- Hiểu và chú ý đến giá trị biến hoặc tên file mà chứa khoảng trắng. Đặt biến khi được gọi trong cặp dấu nháy kém, ví dụ: `"$FOO"`. Ưu tiên sử dụng `-0` hoặc `-print0` để cho phép khoảng trống làm kí tự ngăn cách các tên file, ví dụ: `locate -0 pattern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`. Trước khi xem từng tên file trong một danh sách bằng vòng lặp, hãy gán biến IFS để chỉ cho phép sử dụng kí tự phân cách là new line, `IFS=$'\n'`.
+- Hiểu rằng cần chú ý đến giá trị biến hoặc tên file mà chứa khoảng trắng. Nên đặt biến khi được sử dụng trong cặp dấu nháy kém, ví dụ: `"$FOO"`. Ưu tiên sử dụng `-0` hoặc `-print0` để cho phép khoảng kí tự null làm kí tự ngăn cách các tên file, ví dụ: `locate -0 pattern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`. Rồi thì trước khi xem từng tên file trong một danh sách file (có tên file chứa khoảng trắng) bằng vòng lặp, hãy gán biến IFS để chỉ cho phép sử dụng kí tự phân cách là new line (kí tự xuống dòng) mà thôi, `IFS=$'\n'`.
 
-- Trong Bash script, sử dụng `set -x` (hoặc là `set -v`, khi đó nó sẽ ghi lại các đầu vào của script, cả các biến chưa được mở rộng, cả comment) cho mục đích debug. Hãy sử dụng chế độ nghiêm khắc (strict mode) trừ khi bạn có lý do đủ hợp lý để không sử dụng nó: Sử dụng `set -e` để dừng lại khi gặp lỗi (kết thúc bất cứ chỗ nào với giá trị knonzero). Sử dụng `set -u` để phát hiện việc sử dụng các biến chưa được gán. Xem xét sử dụng `set -o pipefail` nữa, để xử lý các lỗi liên quan đến pipeline ( và hãy đọc thêm cho kĩ nếu định sử dụng nó, ở đây chỉ giới thiệu một chút vậy thôi). Khi có nhiều script liên quan, cũng có thể sử dụng `trap` khi xảy EXIT hoặc ERR (lỗi). Một thói quen khá là tốt là nên bắt đầu script bằng đoạn như sau, mục đích là sẽ phát hiện và dừng script, in lỗi khi gặp các lỗi phổ biến:
+- Trong Bash script, sử dụng `set -x` (hoặc là `set -v`, khi đó nó sẽ ghi lại - logs lại các đầu vào của script, cả các biến chưa được mở rộng, rồi cả comment nữa) cho mục đích debug. Hãy sử dụng chế độ nghiêm khắc (strict mode) trừ khi bạn có lý do đủ hợp lý để không sử dụng nó, mode này bao gồm các thiết lập sau đây. Sử dụng `set -e` để dừng lại khi gặp lỗi (kết thúc bất cứ chỗ nào mà giá trị trả về khác 0). Sử dụng `set -u` để phát hiện việc sử dụng các biến chưa được gán lần nào trước khi sử dụng. Xem xét sử dụng cả `set -o pipefail` nữa, nhằm xử lý các lỗi liên quan đến pipeline (nhớ hãy đọc thêm cho kĩ nếu định sử dụng nó, ở đây chỉ giới thiệu một chút vậy thôi). Khi có nhiều script liên quan, cũng có thể sử dụng `trap` khi xảy EXIT hoặc ERR (lỗi). Một thói quen khá là tốt là nên bắt đầu script bằng đoạn như sau, mục đích là sẽ phát hiện và dừng script, in lỗi khi gặp các lỗi phổ biến:
 ```bash
       set -euo pipefail
       trap "echo 'error: Script failed: see failed command above'" ERR
 ```
 
-- Trong Bash script, các shell con - subshelll (được viết trong dấu ngoặc đơn) là một cách khá tiện để nhóm các câu lệnh lại với nhau. Đây là cách phổ biến thực hiện câu lệnh ở thư mục khác rồi quay lại thư mục ban đầu, như ví dụ dưới đây: 
+- Trong Bash script, các shell con - subshelll (được viết trong dấu ngoặc đơn) là một cách khá tiện để nhóm các câu lệnh lại với nhau. Ví dụ phổ biến là, thực hiện câu lệnh ở thư mục khác rồi quay lại thư mục ban đầu, như dưới đây: 
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- Trong Bash, có rất nhiều kiểu mở rộng biến (tức là thay biến bằng giá trị thật ở lúc chạy). Kiểm tra một biến có tồn tại hay không: `${name:?error message}`. Ví dụ, nếu một script Bash chỉ yêu cầu một tham số đầu vào, đơn giản viết như sau `input_file=${1:?usage: $0 input_file}`. Sử dụng một giá trị mặc định nếu biến là rỗng: `${name:-default}`. Nếu bạn có thêm nhiều tham số hơn nữa, bạn có thể sử dụng kiểu như này `output_file=${2:-logfile}`. Nếu `$2` không được truyền vào và rỗng, `output_file` sẽ được gán là `logfile`. Các phép mở rộng số học: `i=$(( (i + 1) % 5 ))`. Dãy số: `{1..10}`. Cắt gọt chuỗi: `${var%suffix}` và `${var#prefix}`. Ví dụ nếu `var=foo.pdf`, thì câu lệnh `echo ${var%.pdf}.txt` sẽ in ra `foo.txt`.
+- Trong Bash, có rất nhiều kiểu mở rộng biến (tức là thay biến bằng giá trị thật ở lúc chạy). Kiểm tra một biến có tồn tại hay không sử dụng: `${name:?error message}`. Ví dụ, nếu một script Bash chỉ yêu cầu một tham số đầu vào, ta có thể viết đơn giản như sau `input_file=${1:?usage: $0 input_file}`. Sử dụng một giá trị mặc định nếu biến là rỗng: `${name:-default}`. Nếu bạn có thêm nhiều tham số hơn nữa, bạn có thể sử dụng kiểu như này `output_file=${2:-logfile}`. Nếu `$2` không được truyền vào ( tứ là rỗng), `output_file` sẽ được gán là `logfile`. Các phép mở rộng số học: `i=$(( (i + 1) % 5 ))`. Dãy số: `{1..10}`. Cắt gọt chuỗi: `${var%suffix}` và `${var#prefix}`. Ví dụ nếu `var=foo.pdf`, thì câu lệnh `echo ${var%.pdf}.txt` sẽ in ra `foo.txt`.
 
-- Rút gọn cách viết dạng mở rộng sử dụng `{`...`}` có thể giảm việc phải gõ cũng như tự động được phần kết hợp các đoạn với nhau. Cái này rất hữu ích khi sử dụng với câu lệnh dạng `mv foo.{txt,pdf} some-dir` (di chuyển cả 2 file trong 1 câu lệnh), `cp somefile{,.bak}` ( cái mà sẽ được mở rộng thành `cp somefile somefile.bak`) hoặc `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (sẽ mở rộng thành tất cả các dạng kết hợp có thể rồi tạo cây thư mục).
+- Rút gọn cách viết sử dụng `{`...`}` có thể giảm việc phải gõ cũng như tự động được phần kết hợp các đoạn với nhau. Cái này rất hữu ích khi sử dụng với câu lệnh dạng `mv foo.{txt,pdf} some-dir` (di chuyển cả 2 file trong 1 câu lệnh), `cp somefile{,.bak}` (cái mà sẽ được mở rộng thành `cp somefile somefile.bak`) hoặc `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (sẽ mở rộng thành tất cả các dạng kết hợp có thể rồi tạo cây thư mục).
 
 - Đầu ra của một câu lệnh có thể được sử dụng như là một file bằng theo cách `<(some command)`. Ví dụ, so sánh file `/etc/hosts` ở local với file đó trên remote:
 ```sh
