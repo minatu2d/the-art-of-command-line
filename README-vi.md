@@ -147,22 +147,22 @@ Chú ý:
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Khi viết script, bạn có thể đặt code bên trong một cặp ngoặc móc. Nếu việc đóng mở không chính xác, script của bạn sẽ không thể chạy được do mắc lỗi cú pháp (syntax error). Cái này khá hợp lý khi script của bạn được download từ web về, cái này sẽ không cho phép script được download về có thể chạy được:
+- Khi viết script, bạn có thể đặt code bên trong một cặp ngoặc móc. Nếu việc đóng mở không chính xác, script của bạn sẽ không thể chạy được do mắc lỗi cú pháp (syntax error). Cái này khá hợp lý khi script của bạn được download từ web về, cái này sẽ chống lại việc chỉ một phần của script đó được chạy:
 ```bash
 {
       # Your code here
 }
 ```
 
-- Biết về cái (nội dung ở đây) hay  "here documents" trong Bash, như khi sử dụng `cat <<EOF ...`.
+- Biết về cái (nội dung ở đây) hay  "here documents" trong Bash, tức là `cat <<EOF ...` sau đó nhập cần truyền cho `cat`.
 
-- Trong Bash, chuyển hướng cả đầu ra chuẩn lẫn đầu ra nhận lỗi thì sử dụng: `some-command >logfile 2>&1` hoặc `some-command &>logfile`. Thông thường, để đảm bảo rằng câu lệnh không để mở một file dành cho đầu vào chuẩn hay có thể là bất cứ thứ gì bạn gõ vào terminal đang sử dụng, sẽ là chắc chắn hơn nếu thêm vào `</dev/null`.
+- Trong Bash, chuyển hướng cả đầu ra chuẩn (stdout) và đầu ra thông báo lỗi (stderr) thì sử dụng: `some-command >logfile 2>&1` hoặc `some-command &>logfile`. Thông thường, để đảm bảo rằng câu lệnh không thể nhận gì từ đầu vào chuẩn, nó có thể là bất cứ thứ gì bạn gõ vào terminal đang sử dụng, hãy thêm vào `</dev/null`.
 
-- Sử dụng `man ascii` để xem bảng ASCII, cùng với giá trị hex, dec của nó. Về thông tin chung liên quan đến encoding, sử dụng `man unicode`, `man utf-8`, và `man latin1` cũng rất nhiều thông tin hữu ích.
+- Sử dụng `man ascii` để xem bảng ASCII, cùng với giá trị hex, dec của nó. Về thông tin chung liên quan đến encoding, sử dụng `man unicode`, `man utf-8`, và `man latin1` cũng rất hữu ích.
 
-- Sử dụng `screen` hoặc [`tmux`](https://tmux.github.io/) để tạo ra nhiều của sổ làm việc, đặc biệt hữu ích khi làm việc với session trên remote host, các công cụ này cho phép de-tach (tách), re-tach (gắn lại) session. `byobu` có thể nâng cao hơn cho screen hoặc tmux qua để cung cấp thông tin và dễ quản lý hơn. Một tiện ích cực nhỏ khác dành riêng cho việc thống nhất các session là  [`dtach`](https://github.com/bogner/dtach).
+- Sử dụng `screen` hoặc [`tmux`](https://tmux.github.io/) để tạo ra nhiều của sổ làm việc, đặc biệt hữu ích khi làm việc với session trên remote host, các công cụ này cho phép detach (tách), retach (gắn lại) session. `byobu` có thể nâng cao hơn cho screen hoặc tmux qua để cung cấp thông tin và dễ quản lý hơn. Một tiện ích cực nhỏ khác dành riêng cho việc quản lý các session là  [`dtach`](https://github.com/bogner/dtach).
 
-- Trong ssh, biết làm thế nào để port tunnel bằng tham số `-L` or `-D` (thỉnh thoảng còn cả `-R`) là rất có ích, ví dụ truy cập web site thông qua một remote server.
+- Trong ssh, biết làm thế nào để tạo một tunnel (đường ống) bằng tham số `-L` or `-D` (thỉnh thoảng còn cả `-R`) là rất có ích, ví dụ truy cập web site thông qua một remote server.
 
 - Một vài tối ưu cho cấu hình ssh của bạn cũng có thể hữu ích; ví dụ, file `~/.ssh/config` chứa những thiết lập để tránh đứt kết nối trong một vài môi trường mạng cụ thể, sử dụng nén - compress ( cái cũng sẽ giúp ích khi sử dụng scp với kết nối có băng thông thấp - low-bandwidth connections), đa kênh - multiplex channels đến cũng một server bằng file thiết lập ở local:
 ```
