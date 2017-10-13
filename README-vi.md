@@ -19,7 +19,7 @@
 - [Chỉ dành OS X](#os-x-only)
 - [Chỉ dành Windows](#windows-only)
 - [Các nguồn khác](#more-resources)
-- [Disclaimer](#disclaimer)
+- [Chống chỉ định](#disclaimer)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -596,9 +596,9 @@ These are items relevant *only* on OS X.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
 - [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
 
-## Disclaimer
+## Chống chỉ định 
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+Trừ trường hợp task rất nhỏ, ngoài ra thì code nên được viết để người khác có thể đọc. Sức mạnh phải đi cùng với trách nhiệm. Thực sự là có những thứ *có thể* làm trong Bash nhưng không thực sự có thực sự cần thiết với cái bạn cần! ;)
 
 
 ## License
